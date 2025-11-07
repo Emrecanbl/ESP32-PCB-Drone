@@ -6,16 +6,6 @@ Target use: experimentation with brushed propulsion + optical flow/ToF stabiliza
 
 ---
 
-<p align="center">
-  <img src="docs/img/fc_v1_top.png" alt="FC v1 top" width="520"/>
-</p>
-
-<p align="center">
-  <b>Status:</b> Controller (FC) PCB v1 completed • PDB & Flow/ToF boards in design
-</p>
-
----
-
 ## ✨ Key Features
 
 - **Flight MCU:** ESP32-S3-WROOM-1 (FreeRTOS / ESP-IDF)
