@@ -772,7 +772,7 @@
 			(net 1 "GND")
 			(pinfunction "EPAD")
 			(pintype "passive")
-			(uuid "609b636e-0b73-4d26-8ecf-4b2c4f7196a6")
+			(uuid "05b75f07-3c31-421a-86a8-0857320a7518")
 		)
 		(pad "9" thru_hole circle
 			(at -0.7 1.2 270)
@@ -784,7 +784,7 @@
 			(net 1 "GND")
 			(pinfunction "EPAD")
 			(pintype "passive")
-			(uuid "609b636e-0b73-4d26-8ecf-4b2c4f7196a6")
+			(uuid "6270ea86-f01a-4487-941d-8356316be826")
 		)
 		(pad "9" smd rect
 			(at 0 0 270)
@@ -795,7 +795,7 @@
 			(pinfunction "EPAD")
 			(pintype "passive")
 			(zone_connect 2)
-			(uuid "609b636e-0b73-4d26-8ecf-4b2c4f7196a6")
+			(uuid "560d2557-29f9-4379-b405-0c5e08a31d39")
 		)
 		(pad "9" smd rect
 			(at 0 0 270)
@@ -806,7 +806,7 @@
 			(pinfunction "EPAD")
 			(pintype "passive")
 			(zone_connect 2)
-			(uuid "609b636e-0b73-4d26-8ecf-4b2c4f7196a6")
+			(uuid "d622f761-df01-4651-8dfa-b1815cf2faff")
 		)
 		(pad "9" thru_hole circle
 			(at 0.7 -1.2 270)
@@ -818,7 +818,7 @@
 			(net 1 "GND")
 			(pinfunction "EPAD")
 			(pintype "passive")
-			(uuid "609b636e-0b73-4d26-8ecf-4b2c4f7196a6")
+			(uuid "75be1f52-9ec8-41a4-a20e-7c069d5f452c")
 		)
 		(pad "9" thru_hole circle
 			(at 0.7 0 270)
@@ -830,7 +830,7 @@
 			(net 1 "GND")
 			(pinfunction "EPAD")
 			(pintype "passive")
-			(uuid "609b636e-0b73-4d26-8ecf-4b2c4f7196a6")
+			(uuid "acbc0f7f-d486-4fd7-b117-95df491bb07d")
 		)
 		(pad "9" thru_hole circle
 			(at 0.7 1.2 270)
@@ -842,7 +842,7 @@
 			(net 1 "GND")
 			(pinfunction "EPAD")
 			(pintype "passive")
-			(uuid "609b636e-0b73-4d26-8ecf-4b2c4f7196a6")
+			(uuid "e84cd71f-2708-4fdd-a643-660b7bb9cfe1")
 		)
 		(embedded_fonts no)
 		(model "${KICAD9_3DMODEL_DIR}/Package_SO.3dshapes/SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.41x3.3mm.step"
@@ -17035,6 +17035,18 @@
 		)
 		(layer "Edge.Cuts")
 		(uuid "f7fed90f-2e15-4bd8-a4bf-6666b054ea0d")
+	)
+	(gr_text "@EmrecanBL"
+		(at 55.61 46.435 180)
+		(layer "B.SilkS")
+		(uuid "7eed8d97-4aa6-42fa-b2cd-ce628c18efbf")
+		(effects
+			(font
+				(size 2 2)
+				(thickness 0.1)
+			)
+			(justify left bottom mirror)
+		)
 	)
 	(segment
 		(start 81.5 63.505)
