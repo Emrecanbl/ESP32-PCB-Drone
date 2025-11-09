@@ -33,13 +33,13 @@ Target use: experimentation with brushed propulsion + optical flow/ToF stabiliza
 ## Gallery
 
 <p align="center">
-  <img src="Photos/PCB_ESP_Schematic.png.jpg" width="40%">&nbsp;&nbsp;
-  <img src="Photos/PCB_ESP_Tracing.png.jpg" width="40%"><br>
+  <img src="Photos/PCB_ESP_Schematic.png" width="40%">&nbsp;&nbsp;
+  <img src="Photos/PCB_ESP_Tracing.png" width="40%"><br>
   <em> UP_PCB </em>
 </p>
 
 <p align="center">
-  <img src="Photos/PCB_ESP_3D_Model.png.jpg" width="80%"><br>
+  <img src="Photos/PCB_ESP_3D_Model.png" width="80%"><br>
    <em> TOP_PCB </em>
 </p>
 
