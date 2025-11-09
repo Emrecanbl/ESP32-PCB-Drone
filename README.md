@@ -56,7 +56,7 @@ Target use: experimentation with brushed propulsion + optical flow/ToF stabiliza
 
 <p align="center">
   <img src="Photos/PCB_Controller_Schematic.png" width="40%">&nbsp;&nbsp;
-  <img src="Photos/PCB_Bottom_Tracing.png" width="40%"><br>
+  <img src="Photos/PCB_Controller_Tracing.png" width="40%"><br>
   <em> CONTROLLER_PCB </em>
 </p>
 
