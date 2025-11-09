@@ -1,0 +1,5 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "KiCADv6")(type "KiCad")(uri "C:/Users/Emrec/Desktop/PCB_Drone/ESP32-PCB-Drone/PCB_Design/Drone_Chassis/CAD/PMW3901/KiCADv6.pretty")(options "")(descr ""))
+  (lib (name "Library_PMW3901")(type "KiCad")(uri "${KIPRJMOD}/Library_PMW3901.pretty")(options "")(descr ""))
+)
