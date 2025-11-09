@@ -2,46 +2,64 @@
 
 **Low-cost indoor hover / position-hold platform based on ESP32-S3-WROOM-1.**
 
-Target use: experimentation with brushed propulsion + optical flow/ToF stabilization.
+This repository contains the full stack for a three-board brushed quadcopter platform: the flight controller, the power distribution board, and the flow/ToF sensing board. The latest design spin now includes a fully routed PCB, schematic capture, and 3D model renders that make it easier to visualize the stack before fabrication.
+
+---
+
+## 📸 PCB Overview
+
+The PCB design is now complete, with the schematic, layout, and mechanical model kept in sync. Use the renders below to explore the board before sending it to fabrication.
+
+| Perspective | Image |
+| --- | --- |
+| Controller 3D Model | ![Controller 3D Model](Photos/PCB_Controller_3D_Model.png) |
+| Controller Schematic | ![Controller Schematic](Photos/PCB_Controller_Schematic.png) |
+| Controller Tracing | ![Controller Tracing](Photos/PCB_Controller_Tracing.png) |
+| ESP32 FC 3D Model | ![ESP32 FC 3D Model](Photos/PCB_ESP_3D_Model.png) |
+| ESP32 FC Schematic | ![ESP32 FC Schematic](Photos/PCB_ESP_Schematic.png) |
+| ESP32 FC Tracing | ![ESP32 FC Tracing](Photos/PCB_ESP_Tracing.png) |
+| Stack 3D Model | ![Stack 3D Model](Photos/PCB_3D_Model.png) |
+| Stack Tracing | ![Stack Tracing](Photos/PCB_Tracing.png) |
+| Bottom Board Schematic | ![Bottom Board Schematic](Photos/PCB_Bottom_Schematic.png) |
 
 ---
 
 ## ✨ Key Features
 
-- **Flight MCU:** ESP32-S3-WROOM-1 (FreeRTOS / ESP-IDF)
-- **IMU:** MPU-9250 (I²C)
-- **Barometer:** BMP280 (I²C)
-- **Range / Flow (planned):** VL53L0X/L1X (I²C, 2.8 V) + PMW3901 (SPI module)
-- **Power Telemetry:** INA219 high-side current/voltage + VBAT ADC
-- **Brushed Drive:** 2× DRV8833 → 4× 8520 coreless motors (LEDC 16–24 kHz)
-- **Connectivity / UI:** ESP-NOW RX, USB‑C DFU, low‑voltage buzzer (failsafe)
-- **Form factor:** 3‑board stack — Top = PDB, Middle = FC, Bottom = Flow/ToF
-- **Props (brushed):** 55 mm bi‑blade (1.0 mm hub) recommended. 65 mm is heavy for 8520; use with throttle limiting + thermal checks.
+- **Flight MCU:** ESP32-S3-WROOM-1 running FreeRTOS / ESP-IDF firmware.
+- **IMU:** MPU-9250 over I²C with dedicated quiet power island for low noise.
+- **Barometer:** BMP280 on the shared I²C bus for altitude estimation.
+- **Range / Flow (planned):** VL53L0X/L1X (I²C, 2.8 V) plus PMW3901 SPI flow sensor.
+- **Power Telemetry:** INA219 high-side current/voltage + VBAT ADC for pack monitoring.
+- **Brushed Drive:** Dual DRV8833 drivers supporting four 8520 coreless motors with 16–24 kHz PWM.
+- **Connectivity / UI:** ESP-NOW radio link, USB‑C DFU, and an onboard low-voltage buzzer for failsafe alerts.
+- **Mechanical Stack:** 3‑board sandwich — Top = PDB, Middle = FC, Bottom = Flow/ToF — optimized for 20×20 mm mounting.
+- **Propellers:** Tuned for 55 mm bi‑blade (1.0 mm hub). Larger 65 mm props are possible with thermal monitoring.
 
 ---
 
-## 🧱 Hardware Overview
+## 🧱 Hardware Breakdown
 
-### Current Board Status
+### Board Status
 
 | Board | Function | Rev | State |
-|---|---|---:|:--|
-  **FC (Controller)** | ESP32‑S3 + ST773 + Analog Sticks + Battery Management | v1.0 | ✅ Raeady to Fabrication |
-| **FC (Controller)** | ESP32‑S3 + MPU‑9250 + BMP280 + 2×DRV8833 + USB‑C + telemetry headers | v1.0 | 🛠️ In design  |
-| **PDB (Top)** | VBAT in, TVS + bulk caps, INA219 (0.01 Ω shunt, Kelvin), star power distribution | v0.x | 🛠️ In design |
+| --- | --- | ---: | :-- |
+| **FC (Controller)** | ESP32‑S3 + ST773 display, analog sticks, battery management | v1.0 | ✅ Ready for fabrication |
+| **FC (Flight Core)** | ESP32‑S3 + MPU‑9250 + BMP280 + 2×DRV8833 + USB‑C + telemetry headers | v1.0 | ✅ Layout complete |
+| **PDB (Top)** | VBAT entry, TVS + bulk caps, INA219 (0.01 Ω shunt, Kelvin), star power distribution | v0.x | 🛠️ In design |
 | **Flow/ToF (Bottom)** | PMW3901 (SPI) + VL53L0X/L1X (I²C, 2.8 V LDO), downward apertures | v0.x | 🛠️ In design |
 
-### Electrical & Grounding
+### Electrical & Grounding Strategy
 
-- **Split grounds:** `GND_PWR` (PDB/drivers) and `GND_LOG` (MCU/sensors) joined at a single‑point **0 Ω bridge** near the regulator.
-- **IMU "quiet island":** continuous ground below IMU; `3V3_IMU` fed through ferrite with local **10 µF + 1 µF + 0.1 µF** decoupling.
-- **PDB entry:** SMBJ14A TVS and **680–1000 µF** low‑ESR bulk at battery entry; star branches to ESCs/drivers.
+- **Split grounds:** `GND_PWR` (PDB/drivers) and `GND_LOG` (MCU/sensors) meet at a single-point **0 Ω bridge** near the regulator for noise isolation.
+- **IMU quiet island:** continuous ground below the IMU with `3V3_IMU` fed through a ferrite and decoupled by **10 µF + 1 µF + 0.1 µF**.
+- **PDB entry filtering:** SMBJ14A TVS plus **680–1000 µF** low-ESR bulk capacitance at the battery pad, fanning out to each motor driver.
 
-### Mechanical
+### Mechanical Notes
 
-- **Mounting:** 20×20 mm (M2); target outline ≈ 26×26 mm per board.
-- **Stack:** Top = **PDB** → 6–8 mm → Middle = **FC** → 5–6 mm → Bottom = **Flow/ToF**.
-- **Optics:** optical modules face downward through **matte‑black apertures** to reduce stray light.
+- **Mounting:** 20×20 mm M2 pattern with overall board outline ≈ 26×26 mm.
+- **Stack-up:** Top = **PDB** → 6–8 mm standoffs → Middle = **FC** → 5–6 mm → Bottom = **Flow/ToF**.
+- **Optics:** Flow and ToF modules look through **matte-black apertures** to suppress stray reflections.
 
 ---
 
@@ -62,17 +80,17 @@ INT(IMU)= GPIO33
 ```
 SCL = GPIO9
 SDA = GPIO8
-Pull‑ups: 4.7 kΩ; for VL53, pull to 2.8 V — ESP32 reads HIGH.
+Pull-ups: 4.7 kΩ; for VL53, pull to 2.8 V — ESP32 reads HIGH.
 ```
 
-**Brushed PWM (LEDC, 16–24 kHz, 10–11‑bit)**
+**Brushed PWM (LEDC, 16–24 kHz, 10–11-bit)**
 
 ```
 M1 = GPIO3
 M2 = GPIO4
 M3 = GPIO5
 M4 = GPIO6
-DRV8833 single‑ended: IN1 = PWM, IN2 = GND; OUT1/OUT2 → motor.
+DRV8833 single-ended: IN1 = PWM, IN2 = GND; OUT1/OUT2 → motor.
 ```
 
 **Misc**
@@ -94,13 +112,13 @@ EN       = module EN
 
 *(FC completed • others planned)*
 
-- **MCU:** ESP32‑S3‑WROOM‑1
-- **IMU / Baro:** MPU‑9250 (SPI) + BMP280 (I²C)
-- **Brushed Drivers:** 2× DRV8833, **0.1 µF** at each motor; **snubber pads (100 Ω + 10 nF)** per phase (optional)
-- **Telemetry:** INA219 + **0.01 Ω 2512 (1–2 W)** high‑side shunt (Kelvin) · VBAT divider
-- **Regulator:** 3V3 ≥ 1 A — 1S supported via buck‑boost (**TPS63070** / **MPM3610‑3V3**)
-- **Protection / IO:** USB‑C (2×5.1 kΩ CC, D± ESD), **TVS on VBAT**, bulk caps on PDB
-- **Flow / Range (planned):** PMW3901 module (SPI) · VL53L0X/L1X + **2.8 V LDO** (TLV70228 / AP7331‑2.8)
+- **MCU:** ESP32‑S3‑WROOM‑1 module.
+- **IMU / Barometer:** MPU‑9250 (SPI) paired with BMP280 (I²C).
+- **Brushed Drivers:** 2× DRV8833 with **0.1 µF** snubbers at each motor and optional **100 Ω + 10 nF** RC pads.
+- **Telemetry:** INA219 plus **0.01 Ω 2512 (1–2 W)** high-side shunt (Kelvin connection) and VBAT divider.
+- **Regulator:** 3V3 ≥ 1 A buck‑boost (e.g., **TPS63070** / **MPM3610-3V3**) for 1S packs.
+- **Protection / IO:** USB‑C with 2×5.1 kΩ CC, D± ESD protection, **TVS on VBAT**, and generous bulk caps on the PDB.
+- **Flow / Range (planned):** PMW3901 SPI flow module plus VL53L0X/L1X with **2.8 V LDO** (TLV70228 / AP7331-2.8).
 
 > **Estimated full stack cost (brushed + flow + ToF):** **€45–60**
 
@@ -119,37 +137,37 @@ EN       = module EN
 
 ## 🚀 Getting Started
 
-### Hardware
+### Hardware Bring-up
 
-1. Assemble the **FC v1** board.
-2. Connect **4× 8520** motors to **DRV8833** outputs.
-3. Wire **VBAT** through the **PDB** (or use a bench supply).
+1. Assemble the **FC v1** board and verify continuity on the power sections.
+2. Connect **4× 8520** brushed motors to the **DRV8833** outputs with short twisted pairs.
+3. Route **VBAT** through the **PDB** (or a bench supply) and confirm 3V3 regulation before mounting sensors.
 
-### Bring-up Checklist
+### First Power-On Checklist
 
-- Power‑up **without props**; verify USB serial, IMU/BMP/INA219 I²C, and PWM outputs.
-- Calibrate **IMU & baro**; confirm **VBAT** reading.
-- Attach props, set **throttle limit**, perform **short tethered hover** test.
-- Position‑hold (when bottom board is ready): enable **ToF altitude‑hold**, then add **flow‑based XY‑hold**.
+- Power-up **without props**; verify USB serial connectivity, IMU/BMP/INA219 I²C responses, and PWM outputs.
+- Calibrate **IMU & barometer**, and confirm **VBAT** reading accuracy.
+- Install propellers, configure a **throttle limit**, and perform a **short tethered hover** for thermal and control validation.
+- Once the bottom sensing board is available, enable **ToF altitude-hold** followed by **flow-based XY-hold**.
 
 ---
 
 ## 🛠 Build & Layout Notes
 
-- **EDA:** KiCad 7/8 (`/hardware`)
-- **Fabrication:** 1.6 mm FR‑4; prefer **2 oz copper** or **1 oz** with top/bottom pours + dense via‑stitch
-- **Optics (bottom):** matte‑black apertures; clear downward line‑of‑sight
-- **Cabling:** twist motor power pairs; keep signal lines short over solid ground
-- **Calibration:** mag hard/soft‑iron (figure‑8), ToF offset, flow scale vs height
+- **EDA:** KiCad 7/8 (`/hardware`).
+- **Fabrication:** 1.6 mm FR‑4; prefer **2 oz copper** or **1 oz** with top/bottom pours plus dense via stitching.
+- **Optics (bottom board):** paint the aperture interior matte black to minimize reflections.
+- **Cabling:** twist motor power pairs and keep signal lines short over a solid reference plane.
+- **Calibration:** perform magnetometer hard/soft-iron calibration (figure‑8), ToF offset measurement, and flow scale tuning versus altitude.
 
 ---
 
 ## ✅ Test Plan (summary)
 
-- **No‑prop smoke:** 3V3 ripple, PWM edges (pre/post series‑R), TVS/bulk behavior
-- **Tethered step:** ±10° command, capture overshoot/settling
-- **Alt‑hold (ToF)** → enable **XY‑hold (Flow)**
-- **Thermals:** 60 s @ 50 % throttle; log DRV8833/bulk temps
-- **EMI:** IMU spectrum; try PWM **16↔24 kHz**, adjust snubbers if needed
+- **No-prop smoke test:** Monitor 3V3 ripple, PWM edges (pre/post series-R), and TVS/bulk behavior.
+- **Tethered step response:** Command ±10° and record overshoot/settling time.
+- **Alt-hold (ToF):** Validate before enabling **XY-hold (Flow)**.
+- **Thermals:** 60 s @ 50 % throttle; log DRV8833 and bulk capacitor temperatures.
+- **EMI scan:** Capture IMU spectral data; try PWM **16↔24 kHz** and adjust snubbers if needed.
 
 ---
