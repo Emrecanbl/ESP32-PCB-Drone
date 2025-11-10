@@ -1,4 +1,4 @@
- ESP32-S3 Mini FC And Controller With ESP-NOW — Brushless + Optical Flow/ToF
+ ESP32-S3 Mini FC And Controller With ESP-NOW — BLDC + Optical Flow/ToF
 
 **Low-cost indoor hover / position-hold platform based on ESP32-S3-WROOM-1.**
 
