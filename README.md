@@ -129,7 +129,7 @@ Target use: experimentation with brushed propulsion + optical flow/ToF stabiliza
 - **No‑prop smoke:** 3V3 ripple, PWM edges (pre/post series‑R), TVS/bulk behavior
 - **Tethered step:** ±10° command, capture overshoot/settling
 - **Alt‑hold (ToF)** → enable **XY‑hold (Flow)**
-- **Thermals:** 60 s @ 50 % throttle; log DRV8833/bulk temps
+- **Thermals:** 60 s @ 50 % throttle; log ESC/bulk temps
 - **EMI:** IMU spectrum; try PWM **16↔24 kHz**, adjust snubbers if needed
 
 ---
