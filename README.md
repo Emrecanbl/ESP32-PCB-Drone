@@ -77,7 +77,7 @@ Target use: experimentation with brushed propulsion + optical flow/ToF stabiliza
 
 - **MCU:** ESP32‑S3‑WROOM‑1
 - **IMU / Baro:** MPU‑9250 (SPI) + BMP280 (I²C)
-- **Brushed Drivers:** 2× DRV8833, **0.1 µF** at each motor; **snubber pads (100 Ω + 10 nF)** per phase (optional)
+- **Brushed Drivers:** 4× ESC, **0.1 µF** at each motor; **snubber pads (100 Ω + 10 nF)** per phase (optional)
 - **Telemetry:** INA219 + **0.01 Ω 2512 (1–2 W)** high‑side shunt (Kelvin) · VBAT divider
 - **Regulator:** 3V3 ≥ 1 A — 1S supported via buck‑boost (**TPS63070** / **MPM3610‑3V3**)
 - **Protection / IO:** USB‑C (2×5.1 kΩ CC, D± ESD), **TVS on VBAT**, bulk caps on PDB
@@ -102,7 +102,7 @@ Target use: experimentation with brushed propulsion + optical flow/ToF stabiliza
 ### Hardware
 
 1. Assemble the **FC v1** board.
-2. Connect **4× 8520** motors to **DRV8833** outputs.
+2. Connect **4× BLDC** motors to **ESC** outputs.
 3. Wire **VBAT** through the **PDB** (or use a bench supply).
 
 ### Bring-up Checklist
