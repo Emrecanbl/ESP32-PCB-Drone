@@ -89,6 +89,7 @@ Each stage introduces new sensing, control, and autonomy capabilities.
   <img src="Photos/PCB_Controller_Tracing.png" width="40%"><br>
   <em> Bottom  </em>
 </p>
+
 ## 🧭 3. Roadmap (Next Stages)
 
 ### 🔸 GPS Integration (u-blox M10Q)
