@@ -69,7 +69,26 @@ Each stage introduces new sensing, control, and autonomy capabilities.
 - Early tethered hover tests and vibration analysis  
 
 ---
+## Gallery
 
+<p align="center">
+  <img src="Photos/PCB_ESP_3D_Model.png" width="40%">&nbsp;&nbsp;
+  <img src="Photos/PCB_ESP_Schematic.png" width="40%"><br>
+  <img src="Photos/PCB_ESP_Tracing.png" width="40%"><br>
+  <em> ESP32 </em>
+</p>
+<p align="center">
+  <img src="Photos/PCB_Bottom_3D_Model.png" width="40%">&nbsp;&nbsp;
+  <img src="Photos/PCB_Bottom_Schematic.png" width="40%"><br>
+  <img src="Photos/PCB_Bottom_Tracing.png" width="40%"><br>
+  <em> Bottom  </em>
+</p>
+<p align="center">
+  <img src="Photos/PCB_Controller_3D_Model.png" width="40%">&nbsp;&nbsp;
+  <img src="Photos/PCB_Controller_Schematic.png" width="40%"><br>
+  <img src="Photos/PCB_Controller_Tracing.png" width="40%"><br>
+  <em> Bottom  </em>
+</p>
 ## 🧭 3. Roadmap (Next Stages)
 
 ### 🔸 GPS Integration (u-blox M10Q)
