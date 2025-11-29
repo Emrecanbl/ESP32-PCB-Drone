@@ -75,36 +75,24 @@ Once the basic flight stack is stable:
 > NOTE: Images below refer to earlier BLDC stack concepts and will be updated as the brushed PCB-frame design stabilises.
 
 <p align="center">
-  <img src="PCB_ESP_3D_Model.png" width="40%">&nbsp;&nbsp;
+  <img src="Photos/PCB_ESP_3D_Model.png" width="40%">&nbsp;&nbsp;
   <img src="Photos/PCB_ESP_Schematic.png" width="40%">
   <img src="Photos/PCB_ESP_Tracing.png" width="40%"><br>
   <em> UP_FC schematic/placement (early concept) </em>
 </p>
 
 <p align="center">
-  <img src="PCB_Bottom_3D_Model.png" width="40%">&nbsp;&nbsp;
-  <img src="PCB_Bottom_Schematic.png" width="40%"><br>
-  <img src="PCB_Bottom_Tracing.png" width="40%"><br>
-  <em> UP_FC schematic/placement (early concept) </em>
+  <img src="Photos/PCB_Bottom_3D_Model.png" width="40%">&nbsp;&nbsp;
+  <img src="Photos/PCB_Bottom_Schematic.png" width="40%"><br>
+  <img src="Photos/PCB_Bottom_Tracing.png" width="40%"><br>
+  <em> Bottom Layer </em>
 </p>
 <p align="center">
-  <img src="PCB_Controller_3D_Model.png" width="40%">&nbsp;&nbsp;
-  <img src="PCB_Controller_Schematic.png" width="40%"><br>
-  <img src="PCB_Controller_Tracing.png" width="40%"><br>
-   <em> FC 3D model (concept) </em>
-</p>
-
-<p align="center">
-  <img src="Photos/PCB_Controller_Schematic.png" width="40%">&nbsp;&nbsp;
+  <img src="Photos/PCB_Controller_3D_Model.png" width="40%">&nbsp;&nbsp;
+  <img src="Photos/PCB_Controller_Schematic.png" width="40%"><br>
   <img src="Photos/PCB_Controller_Tracing.png" width="40%"><br>
-  <em> CONTROLLER_PCB </em>
+   <em> Controller </em>
 </p>
-
-<p align="center">
-  <img src="Photos/PCB_Controller_3D_Model.png" width="80%"><br>
-   <em> CONTROLLER_PCB 3D model </em>
-</p>
-
 ---
 
 ## 🧰 Core BOM (by phase)
