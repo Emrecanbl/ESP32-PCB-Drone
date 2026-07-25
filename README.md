@@ -72,17 +72,10 @@ CAN is on the board deliberately: it is the bus this class of hardware talks to 
 ## 3. Gallery
 
 <p align="center">
-  <img src="Photos/PCB_Controller_3D_Model.png" width="40%">&nbsp;&nbsp;
-  <img src="Photos/PCB_Controller_Schematic.png" width="40%"><br>
-  <img src="Photos/PCB_Controller_Tracing.png" width="40%"><br>
+  <img src="Photos/PCB_layout.png" width="40%">&nbsp;&nbsp;
+  <img src="Photos/Sensor.png" width="40%"><br>
+  <img src="Photos/Power.png" width="40%"><br>
   <em>Flight controller</em>
-</p>
-
-<p align="center">
-  <img src="Photos/PCB_Bottom_3D_Model.png" width="40%">&nbsp;&nbsp;
-  <img src="Photos/PCB_Bottom_Schematic.png" width="40%"><br>
-  <img src="Photos/PCB_Bottom_Tracing.png" width="40%"><br>
-  <em>Bottom side</em>
 </p>
 
 <p align="center">
