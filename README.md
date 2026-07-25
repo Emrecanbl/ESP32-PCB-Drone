@@ -73,7 +73,7 @@ CAN is on the board deliberately: it is the bus this class of hardware talks to 
 
 <p align="center">
   <img src="Photos/CAD.png" width="40%">
-  <img src="Photos/PCB_layout.png" width="20%">
+  <img src="Photos/PCB_layout.png" width="40%">
   <img src="Photos/MCU.png" width="40%">
   <img src="Photos/Sensor.png" width="40%">
   <img src="Photos/Power.png" width="40%">
