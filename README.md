@@ -84,9 +84,7 @@ CAN is on the board deliberately: it is the bus this class of hardware talks to 
 
 ## 4. Radio link and handheld transmitter
 
-The current transmitter is built on an **ESP32-S3** with a custom RC protocol over **ESP-NOW** — arming, throttle limiting, failsafe, low-voltage scaling and buzzer control. Rev 1 is assembled and tested.
-
-**Planned:** migration of the RC link to an **nRF54L15** handheld unit using ESB / a proprietary 2.4 GHz protocol, for lower latency and better link budget control.
+**Planned:** The RC link to an **nRF54L15** handheld unit using ESB / a proprietary 2.4 GHz protocol, for lower latency and better link budget control.
 
 Whatever the radio, the failsafe requirement is the same: loss of link must put the aircraft into a defined state, not an undefined one.
 
