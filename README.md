@@ -112,10 +112,10 @@ Separate tasks for control, sensing, telemetry and link handling, with queues at
 | Flight controller schematic (Rev 1) | ✅ Complete |
 | Flight controller PCB layout | ✅ Complete |
 | Board fabrication / assembly | 🟡 In progress |
-| ESP32-S3 handheld transmitter | ✅ Rev 1 built and tested |
-| IMU + barometer integration | ✅ Working |
+| ESP32-S3 handheld transmitter | ✅ Rev 1 built |
+| IMU + barometer integration | 🟡 In progress |
 | ToF + optical flow | 🟡 Partial |
-| PID controllers | 🟡 Tuning |
+| PID controllers | 🟡 In progress |
 | Magnetometer integration | 🔜 Planned |
 | CAN interface bring-up | 🔜 Planned |
 | nRF54L15 radio migration | 🔜 Planned |
