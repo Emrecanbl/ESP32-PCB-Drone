@@ -72,19 +72,12 @@ CAN is on the board deliberately: it is the bus this class of hardware talks to 
 ## 3. Gallery
 
 <p align="center">
-  <img src="Photos/CAD.png" width="40%"><br>
-  <img src="Photos/PCB_layout.png" width="20%"><br>
-  <img src="Photos/MCU.png" width="40%"><br>
-  <img src="Photos/Sensor.png" width="40%"><br>
-  <img src="Photos/Power.png" width="40%"><br>
+  <img src="Photos/CAD.png" width="40%">
+  <img src="Photos/PCB_layout.png" width="20%">
+  <img src="Photos/MCU.png" width="40%">
+  <img src="Photos/Sensor.png" width="40%">
+  <img src="Photos/Power.png" width="40%">
   <em>Flight controller</em>
-</p>
-
-<p align="center">
-  <img src="Photos/PCB_ESP_3D_Model.png" width="40%">&nbsp;&nbsp;
-  <img src="Photos/PCB_ESP_Schematic.png" width="40%"><br>
-  <img src="Photos/PCB_ESP_Tracing.png" width="40%"><br>
-  <em>ESP32 section</em>
 </p>
 
 ---
